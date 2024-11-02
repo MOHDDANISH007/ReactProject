@@ -5,19 +5,20 @@ import FilterRegion from "./components/FilterRegion.jsx"
 import "./App.css"
 import CountriesList from "./components/CountriesList.jsx"
 import Mode from "./components/Mode.jsx"
+import { useState } from "react"
 
 
 const App = () => {
-    
+    const [query, setQuery] = useState("")
     return (
         <>
             <Header />
             <main>
                 <div class="search-filter-container">
-                    <SearchBar />
+                    <SearchBar setQuery={setQuery} />
                     <FilterRegion />
                 </div>
-                <CountriesList />
+                <CountriesList query={query} />
                 <Mode  />
             </main>
         </>
